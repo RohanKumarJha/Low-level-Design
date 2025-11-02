@@ -1,7 +1,7 @@
-import java.util.ArrayList;
-import java.util.List;
+package model;
+import java.util.*;
 
-class Restaurant {
+public class Restaurant {
     private String name;
     private String location;
     private List<MenuItem> menu;
@@ -16,15 +16,12 @@ class Restaurant {
         menu.add(item);
     }
 
-    public List<MenuItem> getMenu() {
-        return menu;
-    }
-
+    public List<MenuItem> getMenu() { return menu; }
     public String getName() { return name; }
     public String getLocation() { return location; }
 
     @Override
     public String toString() {
-        return "Restaurant: " + name + " | Location: " + location;
+        return name + " (" + location + ")";
     }
 }

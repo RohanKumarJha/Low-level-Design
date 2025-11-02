@@ -1,9 +1,11 @@
-class MenuItem {
+package model;
+
+public class MenuItem {
     private String code;
     private String name;
-    private int price;
+    private double price;
 
-    public MenuItem(String code, String name, int price) {
+    public MenuItem(String code, String name, double price) {
         this.code = code;
         this.name = name;
         this.price = price;
@@ -11,10 +13,10 @@ class MenuItem {
 
     public String getCode() { return code; }
     public String getName() { return name; }
-    public int getPrice() { return price; }
+    public double getPrice() { return price; }
 
     @Override
     public String toString() {
-        return name + " (₹" + price + ")";
+        return name + " - ₹" + price;
     }
 }
