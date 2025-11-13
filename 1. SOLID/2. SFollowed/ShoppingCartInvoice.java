@@ -1,7 +1,6 @@
 import java.util.List;
 
 public class ShoppingCartInvoice {
-    
     ShoppingCart shoppingCart;
 
     public ShoppingCartInvoice(ShoppingCart shoppingCart) {
@@ -9,11 +8,11 @@ public class ShoppingCartInvoice {
     }
 
     public void invoice() {
-        List<Product> productList = shoppingCart.productList;
-        for(Product p : productList) {
-            System.out.print("ProductId is "+p.productId+" ");
-            System.out.print("ProductName is "+p.productName+" ");
-            System.out.print("ProductPrice is "+p.price+" ");
+        List<Product> list = shoppingCart.list;
+        for(Product i : list) {
+            System.out.print(i.productId+" ");
+            System.out.print(i.productName+" ");
+            System.out.print(i.productPrice);
             System.out.println();
         }
     }

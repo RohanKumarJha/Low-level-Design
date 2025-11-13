@@ -2,16 +2,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCart {
-    List<Product> productList = new ArrayList<>();
+    List<Product> list = new ArrayList<>();
 
     public void addProduct(Product product) {
-        productList.add(product);
+        list.add(product);
+        System.out.println(product.productName+" added successfully");
     }
 
-    public double CalculatePrice() {
-        double price = 0;
-        for(Product i : productList) {
-            price += i.price;
-        } return price;
+    public double calculatePrice() {
+        double totalPrice = 0;
+        for(Product i : list) {
+            totalPrice += i.productPrice;
+        }
+        System.out.println("The total price of items is "+totalPrice);
+        return totalPrice;
     }
 }

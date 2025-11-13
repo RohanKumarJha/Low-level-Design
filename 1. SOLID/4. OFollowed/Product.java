@@ -1,12 +1,12 @@
 public class Product {
     Long productId;
     String productName;
-    double price;
+    double productPrice;
 
-    public Product(Long productId, String productName,double price) {
+    public Product(Long productId, String productName, double productPrice) {
         this.productId = productId;
         this.productName = productName;
-        this.price = price;
+        this.productPrice = productPrice;
     }
-
+    
 }

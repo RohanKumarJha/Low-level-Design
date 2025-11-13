@@ -1,13 +1,29 @@
+import PaymentWays.ShoppingCartPayment;
+import PaymentWays.ShoppingCartPaymentThroughCash;
+import PaymentWays.ShoppingCartPaymentThroughCredit;
+
 public class Client {
     public static void main(String[] args) {
+        Product product1 = new Product(1L, "Book", 120);
+        Product product2 = new Product(2L, "Pen", 12);
+        Product product3 = new Product(3L, "Matchstick", 10);
+
         ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.addProduct(new Product(1L, "Laptop", 15000.0));
-        shoppingCart.addProduct(new Product(2L, "Smartphone", 12000.0));
-        shoppingCart.addProduct(new Product(3L, "IPad", 105000.0));
-        System.out.println("The total price is "+shoppingCart.CalculatePrice());
+        shoppingCart.addProduct(product1);
+        shoppingCart.addProduct(product2);
+        shoppingCart.addProduct(product3);
+        shoppingCart.calculatePrice();
+
         ShoppingCartInvoice shoppingCartInvoice = new ShoppingCartInvoice(shoppingCart);
         shoppingCartInvoice.invoice();
-        ShoppingCartDB shoppingCartDB = new MySqlShoppingCartDB(shoppingCart);
-        shoppingCartDB.saveToDB();
+
+        ShoopingCartDb shoopingCartDb = new ShoopingCartDb(shoppingCart);
+        shoopingCartDb.saveToDb();
+
+        // ShoppingCartPayment shoppingCartPayment = new ShoppingCartPayment(shoppingCart);
+        // shoppingCartPayment.payThrough("caSh");
+
+        ShoppingCartPayment shoppingCartPayment = new ShoppingCartPaymentThroughCash();
+        shoppingCartPayment.payThrough(shoppingCart.calculatePrice());
     }
 }

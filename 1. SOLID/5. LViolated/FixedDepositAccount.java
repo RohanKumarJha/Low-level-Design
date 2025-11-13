@@ -1,16 +1,20 @@
-public class FixedDepositAccount implements Account {
+public class FixedDepositAccount implements Bank {
 
-    double balance = Account.balance;
+    private double balance = 1000;
 
     @Override
-    public void debit(double amount) {
-        System.out.println("Exception occurs!!!");
+    public void debit(double amount) throws NoSuchMethodException {
+        throw new NoSuchMethodException("Method doesn't exist");
     }
 
     @Override
     public void credit(double amount) {
-        System.out.println("Amount successfully credit from your savingAccount, now balance is "+(balance+amount));
-        balance += amount;
+        if(amount <= balance) {
+            balance -= amount;
+            System.out.println(amount+" ruppees added in your account successfully...");
+        } else {
+            System.out.println("Insufficient balance");
+        }
     }
     
 }

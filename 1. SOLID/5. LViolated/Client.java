@@ -1,12 +1,17 @@
 public class Client {
     public static void main(String[] args) {
-        Account account1 = new CurrentAccount();
-        Account account2 = new SavingAccount();
-        account1.credit(1000);
-        account1.debit(2000);
-        account2.credit(500);
-        account2.debit(2000);
-        Account account3 = new FixedDepositAccount();
-        account3.debit(1000);
+        try {
+            Bank bank1 = new CurrentAccount();
+            bank1.debit(2500);
+
+            Bank bank2 = new SavingBank();
+            bank2.debit(2200);
+
+            Bank bank3 = new FixedDepositAccount();
+            bank3.debit(200);
+        } catch(NoSuchMethodException e) {
+            System.out.println(e.getMessage());
+        }
+    
     }
 }

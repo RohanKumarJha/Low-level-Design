@@ -1,21 +1,21 @@
-public class CurrentAccount implements Account {
+public class CurrentAccount implements Bank {
 
-    double balance = Account.balance;
+    private double balance = 1000;
 
     @Override
     public void debit(double amount) {
-        if(amount > balance) {
-            System.out.println("Insufficient Balance in your currentAccount");
-        } else {
-            System.out.println("Amount successfully debited from your currentAccount, now balance is "+(balance-amount));
-            balance -= amount;
-        }
+        balance += amount;
+        System.out.println(amount+" ruppees added in your current account successfully...");
     }
 
     @Override
     public void credit(double amount) {
-        System.out.println("Amount successfully credit in your currentAccount, now balance is "+(balance+amount));
-        balance += amount;
+        if(amount <= balance) {
+            balance -= amount;
+            System.out.println(amount+" ruppees added in your current account successfully...");
+        } else {
+            System.out.println("Insufficient balance");
+        }
     }
     
 }

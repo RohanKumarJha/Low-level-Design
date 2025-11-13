@@ -2,30 +2,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCart {
-    List<Product> products = new ArrayList<>();
+    private List<Product> list = new ArrayList<>();
 
     public void addProduct(Product product) {
-        products.add(product);
+        list.add(product);
+        System.out.println(product.getProductName()+" added successfully");
     }
 
-    public double calculatePrice() {
-        double price = 0;
-        for(int i=0; i<products.size(); i++) {
-            price += products.get(i).price;
-        } return price;
+    public void calculatePrice() {
+        double totalPrice = 0.0;
+        for(Product i : list) {
+            totalPrice += i.getPrice();
+        }
+        System.out.println("The total price of products is "+totalPrice);
     }
 
     public void printInvoice() {
-        for(int i=0; i<products.size(); i++) {
-            System.out.print("ProductId : "+products.get(i).productId+" ");
-            System.out.print("ProductName : "+products.get(i).productName+" ");
-            System.out.print("ProductPrice : "+products.get(i).price);
+        for(Product i : list) {
+            System.out.print(i.getProductId()+" ");
+            System.out.print(i.getProductName()+" ");
+            System.out.print(i.getPrice());
             System.out.println();
         }
     }
 
     public void saveToDb() {
-        System.out.println("Save to database successfully");
+        System.out.println("All the "+list.size()+" elements save to db");
     }
-
 }
