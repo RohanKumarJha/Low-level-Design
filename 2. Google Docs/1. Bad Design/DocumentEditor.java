@@ -5,35 +5,36 @@ import java.util.List;
 
 public class DocumentEditor {
     private List<String> documentElements;
-    private String renderedDocument;
+    private String renderDocument;
 
     public DocumentEditor() {
         documentElements = new ArrayList<>();
-        renderedDocument = "";
+        renderDocument = "";
     }
 
     public void addText(String text) {
         documentElements.add(text);
+        System.out.println("Text added successfully...");
     }
 
     public void addImage(String imagePath) {
         documentElements.add(imagePath);
+        System.out.println("Image added successfully");
     }
 
     public String renderDocument() {
-        if (renderedDocument.isEmpty()) {
-            StringBuilder result = new StringBuilder();
-            for (String element : documentElements) {
-                if (element.length() > 4 && 
-                   (element.endsWith(".jpg") || element.endsWith(".png"))) {
-                    result.append("[Image: ").append(element).append("]\n");
+        if(renderDocument.isEmpty()) {
+            StringBuilder sb = new StringBuilder();
+            for(String element : documentElements) {
+                if (element.length() > 4 && (element.endsWith(".jpg") || element.endsWith(".png"))) {
+                    sb.append("[Image: ").append(element).append("]\n");
                 } else {
-                    result.append(element).append("\n");
+                    sb.append(sb).append("\n");
                 }
-            }
-            renderedDocument = result.toString();
+            } 
+            renderDocument = sb.toString();
         }
-        return renderedDocument;
+        return renderDocument;
     }
 
     public void saveToFile() {
@@ -47,5 +48,4 @@ public class DocumentEditor {
         }
     }
 
-    
 }
