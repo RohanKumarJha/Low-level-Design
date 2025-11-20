@@ -4,6 +4,6 @@ public class Client {
         System.out.println(singeltonClass1.hashCode());
 
         SingeltonClass singeltonClass2 = SingeltonClass.createInstance();
-        System.out.println(singeltonClass2.hashCode());
+        System.out.println(singeltonClass2.hashCode());   
     }
 }
