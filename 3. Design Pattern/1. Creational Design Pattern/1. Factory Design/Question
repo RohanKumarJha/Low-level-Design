@@ -1,0 +1,8 @@
+Vehicle Factory
+
+Vehicle types:
+Bike
+Car
+Truck
+
+Each has different maxSpeed and fuelType.
